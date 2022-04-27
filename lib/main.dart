@@ -1,6 +1,9 @@
 import 'package:e_commerce_app/routes/routes.dart';
+import 'package:e_commerce_app/utils/colors.dart';
+import 'package:e_commerce_app/utils/themes.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 void main() async
@@ -19,17 +22,17 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'E_Commerce',
+      themeMode:Get.isDarkMode? ThemeMode.light:ThemeMode.dark,
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
-        appBarTheme: const AppBarTheme(
+        appBarTheme:  const AppBarTheme(
           iconTheme: IconThemeData(color: Colors.black),
           backgroundColor: Colors.white,
           elevation: 0,
         ),
-        primarySwatch: Colors.blue,
         fontFamily: 'JannaFont',
       ),
-      initialRoute: AppRoutes.onBoard,
+      initialRoute: AppRoutes.welcome,
       getPages:AppRoutes.route,
     );
   }

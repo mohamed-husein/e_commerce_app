@@ -1,7 +1,7 @@
 import 'package:e_commerce_app/logic/controller/auth_controller.dart';
 import 'package:e_commerce_app/utils/icon_broken.dart';
 import 'package:e_commerce_app/utils/my_string.dart';
-import 'package:e_commerce_app/utils/theme.dart';
+import 'package:e_commerce_app/utils/colors.dart';
 import 'package:e_commerce_app/view/widgets/text_form_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -43,7 +43,7 @@ class SignUpScreen extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .headline5!
-                        .copyWith(fontWeight: FontWeight.bold),
+                        .copyWith(fontWeight: FontWeight.bold,color: mainColor),
                   ),
                 ),
                 Text(
@@ -152,24 +152,27 @@ class SignUpScreen extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    GetBuilder<AuthController>(
-                      builder:(context)=> SignUpWithButton(
-                        onPressed: () {
-                          controller.googleSignUp();
-                        },
-                        imageName: 'assets/images/google.png',
-                        text: 'Google',
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      GetBuilder<AuthController>(
+                        builder:(context)=> SignUpWithButton(
+                          onPressed: () {
+                            controller.googleSignUp();
+                          },
+                          imageName: 'assets/images/google.png',
+                          text: 'Google',
+                        ),
                       ),
-                    ),
-                    SignUpWithButton(
-                      onPressed: () {},
-                      imageName: 'assets/images/facebook.png',
-                      text: 'Facebook',
-                    ),
-                  ],
+                      SignUpWithButton(
+                        onPressed: () {},
+                        imageName: 'assets/images/facebook.png',
+                        text: 'Facebook',
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
@@ -179,7 +182,7 @@ class SignUpScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text('Have an account?'),
+                       const Text('Have an account?',style:  TextStyle(color: Colors.black),),
                       const SizedBox(
                         width: 4,
                       ),

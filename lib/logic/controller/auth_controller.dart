@@ -26,7 +26,6 @@ class AuthController extends GetxController {
     update();
   }
 
-
   void signUpWithFireBase({
     required String name,
     required String email,
@@ -98,10 +97,10 @@ class AuthController extends GetxController {
       Get.snackbar('Error!', error.toString(),
           backgroundColor: Colors.grey,
           colorText: Colors.black,
-          duration:const Duration(milliseconds: 300),
-        borderRadius: 10,
-        snackPosition: SnackPosition.BOTTOM
-      );
+          duration: const Duration(milliseconds: 300),
+          borderRadius: 10,
+          snackPosition: SnackPosition.BOTTOM);
     }
   }
+
 }

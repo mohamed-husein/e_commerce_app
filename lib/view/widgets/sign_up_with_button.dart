@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 
 class SignUpWithButton extends StatelessWidget {
@@ -17,6 +18,7 @@ class SignUpWithButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Center(
         child: MaterialButton(
+
           onPressed: onPressed,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -31,7 +33,7 @@ class SignUpWithButton extends StatelessWidget {
               ),
             ],
           ),
-          color: Colors.white,
+          color:  Colors.white,
           height: 60,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           minWidth: MediaQuery.of(context).size.width/2-50,

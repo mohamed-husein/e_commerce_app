@@ -1,5 +1,5 @@
 import 'package:e_commerce_app/logic/controller/auth_controller.dart';
-import 'package:e_commerce_app/utils/theme.dart';
+import 'package:e_commerce_app/utils/colors.dart';
 import 'package:e_commerce_app/view/widgets/button_utils.dart';
 
 import 'package:e_commerce_app/view/widgets/text_form_utils.dart';
@@ -22,7 +22,10 @@ class ForgetPassScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+
+      appBar: AppBar(
+
+      ),
       body: Form(
         key: formKey,
         child: SingleChildScrollView(
@@ -32,13 +35,14 @@ class ForgetPassScreen extends StatelessWidget {
               const SizedBox(
                 height: 50,
               ),
-              Center(
+              Get.isDarkMode?
+               Center(
                 child: SvgPicture.asset(
                   'assets/icons/undraw_forgot_password.svg',
                   height: 180,
                   width: MediaQuery.of(context).size.width / 1.3,
                 ),
-              ),
+              ):const SizedBox(height: 0,),
               const SizedBox(
                 height: 25,
               ),
@@ -65,7 +69,7 @@ class ForgetPassScreen extends StatelessWidget {
                     Text(
                       'Don\'t worry! it happens. please enter the address associated with your account',
                       style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                            color: Colors.grey,
+                            color:Get.isDarkMode? Colors.grey: Colors.white,
                           ),
                     ),
                   ],

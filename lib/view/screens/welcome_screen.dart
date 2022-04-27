@@ -13,60 +13,83 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      backgroundColor: Colors.white,
-      body: Column(
+      body: Stack(
+        alignment: Alignment.bottomCenter,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 80, bottom: 70),
-            child: Center(
-              child: Image.asset(
-                'assets/images/hero.jpg',
-                width: 250,
-                height: 250,
+          Image.asset(
+            'assets/images/background-white.jpg',
+            width: double.infinity,
+            height: double.maxFinite,
+            fit: BoxFit.cover,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(height: 100,),
+              Spacer(),
+              const TitleUtils(text: 'Online Shopping',),
+              const SizedBox(
+                height: 15,
               ),
-            ),
+              const DescriptionUtils(text: 'Find your favorite products that you need to buy daily'),
+             Spacer()
+,              ButtonUtils(
+                text: 'Get start',
+                onPressed: () {
+                  Get.offNamed(Routes.loginScreen);
+                },
+              ),
+              SizedBox(height: 50,)
+
+            ],
           ),
-          const TitleUtils(text:'Welcome'),
-          const SizedBox(
-            height: 15,
-          ),
-          const DescriptionUtils(text: 'Ready to start shopping Sign up'),
-          const Expanded(
-            child: DescriptionUtils(text: 'to get start'),
-          ),
-          ButtonUtils(
-            text: 'Sign Up',
-            onPressed: () {
-              Get.offNamed(Routes.signUpScreen);
-            },
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 8, bottom: 30),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text('Already have a account?'),
-                const SizedBox(
-                  width: 4,
-                ),
-                InkWell(
-                  onTap: () {
-                    Get.offNamed(Routes.loginScreen);
-                  },
-                  child: Text(
-                    'Login',
-                    style: TextStyle(
-                      color: HexColor('4c4df8'),
-                    ),
-                  ),
-                  borderRadius: BorderRadius.circular(5),
-                ),
-              ],
-            ),
-          )
         ],
       ),
+    );
+  }
+
+  Widget ScreenContant() {
+    return Column(
+      children: [
+        const TitleUtils(text: 'Welcome'),
+        const SizedBox(
+          height: 15,
+        ),
+        const DescriptionUtils(text: 'Ready to start shopping Sign up'),
+        const Expanded(
+          child: DescriptionUtils(text: 'to get start'),
+        ),
+        ButtonUtils(
+          text: 'Sign Up',
+          onPressed: () {
+            Get.offNamed(Routes.signUpScreen);
+          },
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 8, bottom: 30),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text('Already have a account?'),
+              const SizedBox(
+                width: 4,
+              ),
+              InkWell(
+                onTap: () {
+                  Get.offNamed(Routes.loginScreen);
+                },
+                child: Text(
+                  'Login',
+                  style: TextStyle(
+                    color: HexColor('4c4df8'),
+                  ),
+                ),
+                borderRadius: BorderRadius.circular(5),
+              ),
+            ],
+          ),
+        )
+      ],
     );
   }
 }

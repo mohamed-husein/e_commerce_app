@@ -12,7 +12,7 @@ import '../view/screens/welcome_screen.dart';
 class AppRoutes
 {
   //initialPage
-  static const onBoard=Routes.onBoardScreen;
+  static const welcome=Routes.welcomeScreen;
   //pageRoute
 
   static final route=[

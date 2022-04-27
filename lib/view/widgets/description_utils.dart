@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class DescriptionUtils extends StatelessWidget {
   final String text;
@@ -6,10 +7,13 @@ class DescriptionUtils extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      text,
-      textAlign: TextAlign.center,
-      style:Theme.of(context).textTheme.bodyText2!.copyWith(color: Colors.black,)
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      child: Text(
+        text,
+        textAlign: TextAlign.center,
+        style:Theme.of(context).textTheme.headline6!.copyWith(color: Colors.black)
+      ),
     );
   }
 }

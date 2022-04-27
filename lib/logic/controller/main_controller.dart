@@ -12,7 +12,7 @@ class MainController extends GetxController {
   RxInt currentIndex = 0.obs;
 
   final screens = [
-    const HomeScreen(),
+     HomeScreen(),
     const CategoriesScreen(),
     const FavoritesScreen(),
     const SettingsScreen()
@@ -31,7 +31,6 @@ class MainController extends GetxController {
     const Text('Favorites',style: textStyle,),
     const Text('Profile',style: textStyle,),
   ].obs;
-
 
 
 }

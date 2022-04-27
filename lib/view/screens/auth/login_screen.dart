@@ -1,6 +1,6 @@
 import 'package:e_commerce_app/logic/controller/auth_controller.dart';
 import 'package:e_commerce_app/utils/icon_broken.dart';
-import 'package:e_commerce_app/utils/theme.dart';
+import 'package:e_commerce_app/utils/colors.dart';
 import 'package:e_commerce_app/view/widgets/text_form_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -40,7 +40,7 @@ class LoginScreen extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .headline5!
-                        .copyWith(fontWeight: FontWeight.bold),
+                        .copyWith(fontWeight: FontWeight.bold,color: mainColor),
                   ),
                 ),
                 Text(
@@ -83,10 +83,10 @@ class LoginScreen extends StatelessWidget {
                         controller.changeVisibility();
                       },
                       icon:controller.isVisibility? Icon(
-                        Icons.visibility_off,
+                        Icons.visibility_off_outlined,
                         color: mainColor,
                       ):Icon(
-                        Icons.visibility,
+                        Icons.visibility_outlined,
                         color: mainColor,
                       ),
                     ),
@@ -104,7 +104,7 @@ class LoginScreen extends StatelessWidget {
                       child: Text(
                         'Forget password?',
                         style: TextStyle(
-                          color: HexColor('4c4df8'),
+                          color: Get.isDarkMode? mainColor: Colors.white,
                         ),
                       ),
                       borderRadius: BorderRadius.circular(5),
@@ -137,29 +137,27 @@ class LoginScreen extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        GetBuilder<AuthController>(
-                          builder:(context)=> SignUpWithButton(
-                            onPressed: () {
-                              controller.googleSignUp();
-                            },
-                            imageName: 'assets/images/google.png',
-                            text: 'Google',
-                          ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      GetBuilder<AuthController>(
+                        builder:(context)=> SignUpWithButton(
+                          onPressed: () {
+                            controller.googleSignUp();
+                          },
+                          imageName: 'assets/images/google.png',
+                          text: 'Google',
                         ),
-                        SignUpWithButton(
-                          onPressed: () {},
-                          imageName: 'assets/images/facebook.png',
-                          text: 'Facebook',
-                        ),
-                      ],
-                    ),
-                  ],
+                      ),
+                      SignUpWithButton(
+                        onPressed: () {},
+                        imageName: 'assets/images/facebook.png',
+                        text: 'Facebook',
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
@@ -169,7 +167,7 @@ class LoginScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text('Don\'t have an account?'),
+                       const Text('Don\'t have an account?',style: TextStyle(color:  Colors.black ),),
                       const SizedBox(
                         width: 4,
                       ),
@@ -187,7 +185,8 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                )
+                ),
+
               ],
             ),
           ),

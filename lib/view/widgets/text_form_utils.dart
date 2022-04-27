@@ -1,5 +1,7 @@
-import 'package:e_commerce_app/utils/theme.dart';
+import 'package:e_commerce_app/utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 import '../../utils/my_string.dart';
 
@@ -26,7 +28,7 @@ class TextFormFieldUtils extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 10,right: 20,left: 20,bottom: 5),
       child: TextFormField(
-        style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+        style:  TextStyle(fontSize: 15, fontWeight: FontWeight.bold,),
         controller: controller,
         obscureText: obscureText!,
         validator: (value) =>
@@ -55,7 +57,7 @@ class TextFormFieldUtils extends StatelessWidget {
           hintText: hintText,
           contentPadding:
                const EdgeInsets.symmetric(vertical: 17, horizontal: 10),
-          hintStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+          hintStyle:  TextStyle(fontSize: 15, fontWeight: FontWeight.bold,color: Get.isDarkMode? Colors.white: Colors.grey),
           prefixIcon : prefixIcon ,
           suffixIcon:isSuffix==true? suffixIcon:null,
         ),

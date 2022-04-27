@@ -1,12 +1,25 @@
+import 'package:e_commerce_app/logic/controller/auth_controller.dart';
+import 'package:e_commerce_app/logic/controller/main_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+
+
+  HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text('Home Screen'),),
-    );
+    return
+       Scaffold(
+        body: Center(
+          child: MaterialButton(
+            onPressed: () {
+            },
+            child: Text('change'),
+          ),
+        ),
+      );
+
   }
 }

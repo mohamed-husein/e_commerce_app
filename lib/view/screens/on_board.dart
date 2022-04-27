@@ -1,5 +1,5 @@
 import 'package:e_commerce_app/routes/routes.dart';
-import 'package:e_commerce_app/utils/theme.dart';
+import 'package:e_commerce_app/utils/colors.dart';
 import 'package:e_commerce_app/view/widgets/description_utils.dart';
 import 'package:e_commerce_app/view/widgets/title_utils.dart';
 import 'package:flutter/material.dart';
