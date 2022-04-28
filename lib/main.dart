@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.white,
           elevation: 0,
         ),
-        fontFamily: 'JannaFont',
+        fontFamily: 'Gordita',
       ),
       initialRoute:FirebaseAuth.instance.currentUser != null ||
           GetStorage().read<bool>('isLogin') == true

@@ -19,10 +19,10 @@ class MainController extends GetxController {
   ].obs;
 
   List<BottomNavigationBarItem> bottomNavItem=[
-    BottomNavigationBarItem(icon: Icon(IconBroken.Home),label: 'Home'),
-    BottomNavigationBarItem(icon: Icon(IconBroken.Category),label: 'Categories'),
-    BottomNavigationBarItem(icon: Icon(IconBroken.Heart),label: 'Favorites'),
-    BottomNavigationBarItem(icon: Icon(IconBroken.Profile),label: 'Profile'),
+    const BottomNavigationBarItem(icon: Icon(IconBroken.Home),label: 'Home'),
+    const BottomNavigationBarItem(icon: Icon(IconBroken.Category),label: 'Categories'),
+    const BottomNavigationBarItem(icon: Icon(IconBroken.Heart),label: 'Favorites'),
+    const BottomNavigationBarItem(icon: Icon(IconBroken.Profile),label: 'Profile'),
   ].obs;
 
   List<Widget>pages=[

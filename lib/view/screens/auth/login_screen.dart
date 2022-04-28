@@ -3,6 +3,7 @@ import 'package:e_commerce_app/utils/icon_broken.dart';
 import 'package:e_commerce_app/utils/colors.dart';
 import 'package:e_commerce_app/view/widgets/text_form_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 import '../../../routes/routes.dart';
@@ -64,7 +65,10 @@ class LoginScreen extends StatelessWidget {
                     return null;
                   },
                   hintText: 'Email',
-                  prefixIcon: Icon(IconBroken.Message, color: mainColor),
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(14.0),
+                    child: SvgPicture.asset('assets/icons/envelope.svg',color: mainColor),
+                  ),
                 ),
                 GetBuilder<AuthController>(builder: (context) {
                   return TextFormFieldUtils(
@@ -90,7 +94,10 @@ class LoginScreen extends StatelessWidget {
                         color: mainColor,
                       ),
                     ),
-                    prefixIcon: Icon(IconBroken.Lock, color: mainColor),
+                    prefixIcon: Padding(
+                      padding: const EdgeInsets.all(14.0),
+                      child: SvgPicture.asset('assets/icons/lock.svg',color: mainColor,),
+                    ),
                   );
                 }),
                 Padding(

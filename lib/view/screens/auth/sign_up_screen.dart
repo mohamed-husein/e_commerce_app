@@ -1,9 +1,9 @@
 import 'package:e_commerce_app/logic/controller/auth_controller.dart';
-import 'package:e_commerce_app/utils/icon_broken.dart';
 import 'package:e_commerce_app/utils/my_string.dart';
 import 'package:e_commerce_app/utils/colors.dart';
 import 'package:e_commerce_app/view/widgets/text_form_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 import '../../../routes/routes.dart';
@@ -66,7 +66,10 @@ class SignUpScreen extends StatelessWidget {
                     return null;
                   },
                   hintText: 'Full Name',
-                  prefixIcon: Icon(IconBroken.Profile, color: mainColor),
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(14.0),
+                    child: SvgPicture.asset('assets/icons/User.svg',color: mainColor),
+                  ),
                 ),
                 TextFormFieldUtils(
                   obscureText: false,
@@ -79,7 +82,10 @@ class SignUpScreen extends StatelessWidget {
                     return null;
                   },
                   hintText: 'Email',
-                  prefixIcon: Icon(IconBroken.Message, color: mainColor),
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(14.0),
+                    child: SvgPicture.asset('assets/icons/envelope.svg',color: mainColor),
+                  ),
                 ),
                 TextFormFieldUtils(
                   obscureText: false,
@@ -91,7 +97,10 @@ class SignUpScreen extends StatelessWidget {
                     return null;
                   },
                   hintText: 'Phone',
-                  prefixIcon: Icon(IconBroken.Call, color: mainColor),
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(14.0),
+                    child: SvgPicture.asset('assets/icons/phone-call.svg',color: mainColor),
+                  ),
                 ),
                 GetBuilder<AuthController>(builder: (context) {
                   return TextFormFieldUtils(
@@ -119,7 +128,10 @@ class SignUpScreen extends StatelessWidget {
                               color: mainColor,
                             ),
                     ),
-                    prefixIcon: Icon(IconBroken.Lock, color: mainColor),
+                    prefixIcon: Padding(
+                    padding: const EdgeInsets.all(14.0),
+                    child: SvgPicture.asset('assets/icons/lock.svg',color: mainColor),
+                  ),
                   );
                 }),
                 const SizedBox(

@@ -73,16 +73,21 @@ flutter:
     - assets/images/
     - assets/icons/
 
+
   fonts:
-    - family: JannaFont
-      fonts:
-        - asset: assets/fonts/Janna.ttf
-    - family: JannaBoldFont
-      fonts:
-        - asset: assets/fonts/Janna.ttf
     - family: IconBroken
       fonts:
         - asset: assets/fonts/icons.ttf
+    - family: Gordita
+      fonts:
+        - asset: assets/fonts/Gordita_Regular.otf
+        - asset: assets/fonts/Gordita_Medium.otf
+          weight: 500
+        - asset: assets/fonts/Gordita_Bold.otf
+          weight: 700
+        - asset: assets/fonts/Gordita_Light.otf
+          weight: 300
+
 
 
 

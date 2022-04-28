@@ -28,7 +28,7 @@ class TextFormFieldUtils extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 10,right: 20,left: 20,bottom: 5),
       child: TextFormField(
-        style:  TextStyle(fontSize: 15, fontWeight: FontWeight.bold,),
+        style:  TextStyle(fontSize: 13, fontWeight: FontWeight.bold,),
         controller: controller,
         obscureText: obscureText!,
         validator: (value) =>
