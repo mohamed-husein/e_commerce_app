@@ -13,6 +13,10 @@ class AppRoutes
 {
   //initialPage
   static const welcome=Routes.welcomeScreen;
+  static const main=Routes.mainScreen;
+  static const login=Routes.loginScreen;
+
+
   //pageRoute
 
   static final route=[

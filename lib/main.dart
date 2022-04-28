@@ -1,15 +1,15 @@
 import 'package:e_commerce_app/routes/routes.dart';
-import 'package:e_commerce_app/utils/colors.dart';
-import 'package:e_commerce_app/utils/themes.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:get/get.dart';
 
-void main() async
-{
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  GetStorage().read('getStart');
   runApp(const MyApp());
 }
 
@@ -22,18 +22,21 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'E_Commerce',
-      themeMode:Get.isDarkMode? ThemeMode.light:ThemeMode.dark,
+      themeMode: Get.isDarkMode ? ThemeMode.light : ThemeMode.dark,
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
-        appBarTheme:  const AppBarTheme(
+        appBarTheme: const AppBarTheme(
           iconTheme: IconThemeData(color: Colors.black),
           backgroundColor: Colors.white,
           elevation: 0,
         ),
         fontFamily: 'JannaFont',
       ),
-      initialRoute: AppRoutes.welcome,
-      getPages:AppRoutes.route,
+      initialRoute:FirebaseAuth.instance.currentUser != null ||
+          GetStorage().read<bool>('isLogin') == true
+          ? AppRoutes.main
+          : AppRoutes.welcome,
+      getPages: AppRoutes.route,
     );
   }
 }

@@ -142,15 +142,15 @@ class LoginScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      GetBuilder<AuthController>(
-                        builder:(context)=> SignUpWithButton(
+
+                   SignUpWithButton(
                           onPressed: () {
-                            controller.googleSignUp();
+
                           },
                           imageName: 'assets/images/google.png',
                           text: 'Google',
                         ),
-                      ),
+
                       SignUpWithButton(
                         onPressed: () {},
                         imageName: 'assets/images/facebook.png',

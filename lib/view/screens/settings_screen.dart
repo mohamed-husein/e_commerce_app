@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/logic/controller/auth_controller.dart';
 import 'package:flutter/material.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -5,8 +6,15 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text('Profile Screen'),),
+    return Scaffold(
+      body: Center(
+        child: MaterialButton(
+          onPressed: () {
+            AuthController().signOut();
+          },
+          child: const Text('SignOut'),
+        ),
+      ),
     );
   }
 }
