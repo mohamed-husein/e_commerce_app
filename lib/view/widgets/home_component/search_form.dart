@@ -24,7 +24,7 @@ class SearchForm extends StatelessWidget {
         onSaved: (value) {},
         decoration: InputDecoration(
           filled: true,
-          fillColor: Colors.white,
+          fillColor: Colors.grey.shade100,
           hintText: "Search items...",
           border: outlineInputBorder,
           enabledBorder: outlineInputBorder,
@@ -42,7 +42,7 @@ class SearchForm extends StatelessWidget {
               height: 48,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: primaryColor,
+                  primary: mainColor,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(12)),
                   ),
