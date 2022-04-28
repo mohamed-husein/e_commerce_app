@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../model/Product.dart';
-import '../../utils/colors.dart';
 import '../../utils/contant.dart';
+import '../widgets/home_button.dart';
 import '../widgets/product_component/color_dot.dart';
 
 class DetailsScreen extends StatelessWidget {
@@ -96,19 +96,7 @@ class DetailsScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: defaultPadding * 2),
-                  Center(
-                    child: SizedBox(
-                      width: 200,
-                      height: 48,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                            primary: primaryColor,
-                            shape: const StadiumBorder()),
-                        child: const Text("Add to Cart"),
-                      ),
-                    ),
-                  )
+                  const HomeButton(text: 'Add to card'),
                 ],
               ),
             ),
