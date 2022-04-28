@@ -3,6 +3,7 @@ import 'package:e_commerce_app/view/widgets/description_utils.dart';
 import 'package:e_commerce_app/view/widgets/title_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 import '../widgets/button_utils.dart';
@@ -36,6 +37,7 @@ class WelcomeScreen extends StatelessWidget {
 ,              ButtonUtils(
                 text: 'Get start',
                 onPressed: () {
+                  GetStorage().write('getStart', true);
                   Get.offNamed(Routes.loginScreen);
                 },
               ),
