@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/logic/controller/products_controller.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -19,6 +20,29 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
         return Scaffold(
+          appBar: AppBar(
+            leading: IconButton(
+              onPressed: () {},
+              icon: SvgPicture.asset("assets/icons/menu.svg"),
+            ),
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SvgPicture.asset("assets/icons/Location.svg"),
+                const SizedBox(width: defaultPadding / 2),
+                Text(
+                  "15/2 New Texas",
+                    style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 16),
+                ),
+              ],
+            ),
+            actions: [
+              IconButton(
+                icon: SvgPicture.asset("assets/icons/Notification.svg"),
+                onPressed: () {},
+              ),
+            ],
+          ),
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(
               parent: AlwaysScrollableScrollPhysics()),
@@ -97,9 +121,10 @@ class HomeScreen extends StatelessWidget {
                                 const SizedBox(height: defaultPadding / 2),
                                 Row(
                                   children: [
-                                    const Expanded(
+                                     Expanded(
                                       child: Text(
-                                        'product1',
+                                        controller.productsList[index].title ,
+                                        overflow: TextOverflow.ellipsis,
                                         style: TextStyle(color: Colors.black),
                                       ),
                                     ),

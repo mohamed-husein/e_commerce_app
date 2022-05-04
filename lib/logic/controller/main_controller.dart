@@ -11,6 +11,11 @@ import '../../view/screens/main_screen.dart';
 class MainController extends GetxController {
   RxInt currentIndex = 0.obs;
 
+  void selectItem(index){
+    currentIndex.value=index;
+  }
+
+
   final screens = [
      HomeScreen(),
     const CategoriesScreen(),

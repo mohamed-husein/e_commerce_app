@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/logic/controller/products_controller.dart';
+import 'package:e_commerce_app/utils/icon_broken.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -72,7 +73,9 @@ class AllProductsScreen extends StatelessWidget {
                     return buildProductsItem(context,
                         image: controller.productsList[index].image,
                         title: controller.productsList[index].title,
-                        price: controller.productsList[index].price);
+                        price: controller.productsList[index].price,
+                        productId: controller.productsList[index].id,
+                    );
                   },
                 ),
               ),
@@ -84,7 +87,7 @@ class AllProductsScreen extends StatelessWidget {
   }
 
   Widget buildProductsItem(context,
-      {required image, required title, required price}) {
+      {required image, required title, required price,required int productId}) {
     return Stack(
       alignment: Alignment.topCenter,
       children: [
@@ -135,16 +138,18 @@ class AllProductsScreen extends StatelessWidget {
         ),
         SizedBox(
           width: 154,
-          child: Row(
+          child: Obx((){return Row(
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  controller.manageFavorite(productId);
+                },
                 icon: CircleAvatar(
                   backgroundColor: Colors.grey.shade300,
-                  child: SvgPicture.asset(
+                  child:controller.isFavorite(productId)? SvgPicture.asset(
                     "assets/icons/Heart.svg",
                     height: 20,
-                  ),
+                  ):const Icon(IconBroken.Heart,color: Colors.white,),
                 ),
               ),
               const Spacer(),
@@ -159,7 +164,7 @@ class AllProductsScreen extends StatelessWidget {
                 ),
               ),
             ],
-          ),
+          );}),
         )
       ],
     );
