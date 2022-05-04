@@ -7,6 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 import '../../../routes/routes.dart';
+import '../../../utils/icon_broken.dart';
 import '../../widgets/button_utils.dart';
 import '../../widgets/sign_up_with_button.dart';
 
@@ -35,11 +36,15 @@ class SignUpScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Icon(IconBroken.Bag,size: 100,color: mainColor,),
+                ),
+                Padding(
                   padding: const EdgeInsets.only(
-                    top: 20,
+                    top: 20,bottom: 5
                   ),
                   child: Text(
-                    'Create new account',
+                    'HELLO THERE',
                     style: Theme.of(context)
                         .textTheme
                         .headline5!
@@ -47,14 +52,14 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'please fill in the form to continue',
+                  'Register below with your details',
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium!
-                      .copyWith(color: Colors.grey),
+                      .copyWith(color: Colors.grey,fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(
-                  height: 50,
+                  height: 30,
                 ),
                 TextFormFieldUtils(
                   obscureText: false,
@@ -152,39 +157,14 @@ class SignUpScreen extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                Center(
-                  child: Text(
-                    'Or sign up with',
-                    style: Theme.of(context)
-                        .textTheme
-                        .subtitle1!
-                        .copyWith(color: Colors.grey),
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
 
-              SignUpWithButton(
-                          onPressed: () {
 
-                          },
-                          imageName: 'assets/images/google.png',
-                          text: 'Google',
-                        ),
+                SignUpWithButton(
+                  onPressed: () {
 
-                      SignUpWithButton(
-                        onPressed: () {},
-                        imageName: 'assets/images/facebook.png',
-                        text: 'Facebook',
-                      ),
-                    ],
-                  ),
+                  },
+                  imageName: 'assets/images/google.png',
+                  text: 'Google',
                 ),
                 const SizedBox(
                   height: 20,
@@ -200,7 +180,7 @@ class SignUpScreen extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () {
-                          Get.toNamed(Routes.loginScreen);
+                          Get.offNamed(Routes.loginScreen);
                         },
                         child: Text(
                           'Login',
