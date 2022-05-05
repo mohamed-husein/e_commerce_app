@@ -7,23 +7,22 @@ class ProductsController extends GetxController {
   List productsList = <ProductsModel>[].obs;
   List favoriteList = [].obs;
   var isLoading = true.obs;
-  var getStorage=GetStorage();
+  var getStorage = GetStorage();
 
   @override
   void onInit() {
     // TODO: implement onInit
     super.onInit();
-    List? storedShoppings = getStorage.read<List>('isFavouritesList');
-
-    if (storedShoppings != null) {
+    List? storedShopping = getStorage.read<List>('isFavouritesList');
+    if (storedShopping != null) {
       favoriteList =
-          storedShoppings.map((e) => ProductsModel.fromJson(e)).toList().obs;
+          storedShopping.map((e) => ProductsModel.fromJson(e)).toList().obs;
     }
     getProducts();
   }
 
   void getProducts() async {
-    var products = await ProductsServices.getProducts();
+    var products = await ProductsServices().getProducts();
     try {
       isLoading(true);
       if (products.isNotEmpty) {
@@ -34,23 +33,19 @@ class ProductsController extends GetxController {
     }
   }
 
-  void manageFavorite(int productId)async {
-    var index=favoriteList.indexWhere((element) => element.id==productId);
-    if(index >=0){
-
+  void manageFavorite(int productId) async {
+    var index = favoriteList.indexWhere((element) => element.id == productId);
+    if (index >= 0) {
       favoriteList.removeAt(index);
       await getStorage.remove('isFavouritesList');
-
-    }
-    else{
+    } else {
       favoriteList
           .add(productsList.firstWhere((element) => element.id == productId));
-     await getStorage.write('isFavouritesList', favoriteList);
+      await getStorage.write('isFavouritesList', favoriteList);
     }
-
   }
 
-  bool isFavorite(int productId){
-    return favoriteList.any((element) => element.id==productId);
+  bool isFavorite(int productId) {
+    return favoriteList.any((element) => element.id == productId);
   }
 }

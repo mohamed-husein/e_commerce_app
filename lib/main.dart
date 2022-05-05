@@ -1,8 +1,7 @@
+import 'package:e_commerce_app/logic/controller/theme_controller.dart';
 import 'package:e_commerce_app/routes/routes.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -22,21 +21,14 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'E_Commerce',
-      themeMode: Get.isDarkMode ? ThemeMode.light : ThemeMode.dark,
-      theme: ThemeData(
+      themeMode: ThemeController().themeMode,
+      theme: ThemeData.light().copyWith(
+        appBarTheme:
+            const AppBarTheme(backgroundColor: Colors.white, elevation: 0),
         scaffoldBackgroundColor: Colors.white,
-        appBarTheme: const AppBarTheme(
-          titleTextStyle: TextStyle(fontFamily: 'Gordita'),
-          iconTheme: IconThemeData(color: Colors.black),
-          backgroundColor: Colors.white,
-          elevation: 0,
-        ),
-        fontFamily: 'Gordita',
       ),
-      initialRoute:FirebaseAuth.instance.currentUser != null ||
-          GetStorage().read<bool>('isLogin') == true
-          ? AppRoutes.main
-          : AppRoutes.welcome,
+      darkTheme: ThemeData.dark(),
+      initialRoute: AppRoutes.welcome,
       getPages: AppRoutes.route,
     );
   }

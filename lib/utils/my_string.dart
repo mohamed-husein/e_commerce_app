@@ -5,3 +5,5 @@ String validationName = r'^[a-z A-Z]+$';
 
 String baseUrl = 'https://fakestoreapi.com';
 
+String validPassword = r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
+

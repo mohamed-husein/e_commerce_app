@@ -39,6 +39,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return Scaffold(
+        backgroundColor: context.theme.scaffoldBackgroundColor,
         body: IndexedStack(
           children: controller.screens,
           index: controller.currentIndex.value,
@@ -50,7 +51,7 @@ class MainScreen extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50),
-              color: Colors.grey.shade100,
+              color: Get.isDarkMode ? Colors.black26:Colors.grey.shade200,
             ),
             child: Center(
               child: Wrap(

@@ -86,7 +86,7 @@ class AllProductsScreen extends StatelessWidget {
   }
 
   Widget buildProductsItem(context,
-      {required image, required title, required price,required int productId}) {
+      {required String image, required String title, required double price,required int productId}) {
     return Stack(
       alignment: Alignment.topCenter,
       children: [
@@ -127,7 +127,7 @@ class AllProductsScreen extends StatelessWidget {
                   ),
                   const SizedBox(width: defaultPadding / 4),
                   Text(
-                    "\$$price",
+                    "$price",
                     style: Theme.of(context).textTheme.subtitle2,
                   ),
                 ],

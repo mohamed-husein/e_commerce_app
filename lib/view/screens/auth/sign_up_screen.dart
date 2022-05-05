@@ -37,26 +37,24 @@ class SignUpScreen extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Icon(IconBroken.Bag,size: 100,color: mainColor,),
+                  child: Icon(
+                    IconBroken.Bag,
+                    size: 100,
+                    color: mainColor,
+                  ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(
-                    top: 20,bottom: 5
-                  ),
+                  padding: const EdgeInsets.only(top: 20, bottom: 5),
                   child: Text(
                     'HELLO THERE',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline5!
-                        .copyWith(fontWeight: FontWeight.bold,color: mainColor),
+                    style: Theme.of(context).textTheme.headline5!.copyWith(
+                        fontWeight: FontWeight.bold, color: mainColor),
                   ),
                 ),
                 Text(
                   'Register below with your details',
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleMedium!
-                      .copyWith(color: Colors.grey,fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                      color: Colors.grey, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(
                   height: 30,
@@ -73,7 +71,8 @@ class SignUpScreen extends StatelessWidget {
                   hintText: 'Full Name',
                   prefixIcon: Padding(
                     padding: const EdgeInsets.all(14.0),
-                    child: SvgPicture.asset('assets/icons/User.svg',color: mainColor),
+                    child: SvgPicture.asset('assets/icons/User.svg',
+                        color: mainColor),
                   ),
                 ),
                 TextFormFieldUtils(
@@ -89,7 +88,8 @@ class SignUpScreen extends StatelessWidget {
                   hintText: 'Email',
                   prefixIcon: Padding(
                     padding: const EdgeInsets.all(14.0),
-                    child: SvgPicture.asset('assets/icons/envelope.svg',color: mainColor),
+                    child: SvgPicture.asset('assets/icons/envelope.svg',
+                        color: mainColor),
                   ),
                 ),
                 TextFormFieldUtils(
@@ -104,7 +104,8 @@ class SignUpScreen extends StatelessWidget {
                   hintText: 'Phone',
                   prefixIcon: Padding(
                     padding: const EdgeInsets.all(14.0),
-                    child: SvgPicture.asset('assets/icons/phone-call.svg',color: mainColor),
+                    child: SvgPicture.asset('assets/icons/phone-call.svg',
+                        color: mainColor),
                   ),
                 ),
                 GetBuilder<AuthController>(builder: (context) {
@@ -134,9 +135,10 @@ class SignUpScreen extends StatelessWidget {
                             ),
                     ),
                     prefixIcon: Padding(
-                    padding: const EdgeInsets.all(14.0),
-                    child: SvgPicture.asset('assets/icons/lock.svg',color: mainColor),
-                  ),
+                      padding: const EdgeInsets.all(14.0),
+                      child: SvgPicture.asset('assets/icons/lock.svg',
+                          color: mainColor),
+                    ),
                   );
                 }),
                 const SizedBox(
@@ -146,23 +148,21 @@ class SignUpScreen extends StatelessWidget {
                   builder: (context) => ButtonUtils(
                     text: 'Sign Up',
                     onPressed: () {
-                      controller.signUpWithFireBase(
-                          email: emailController.text.trim(),
-                          pass: passController.text,
-                          phone: phoneController.text.trim(),
-                          name: nameController.text.trim());
+                      if (formKey.currentState!.validate()) {
+                        controller.signUpWithFireBase(
+                            email: emailController.text.trim(),
+                            pass: passController.text,
+                            phone: phoneController.text.trim(),
+                            name: nameController.text.trim());
+                      }
                     },
                   ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-
-
                 SignUpWithButton(
-                  onPressed: () {
-
-                  },
+                  onPressed: () {},
                   imageName: 'assets/images/google.png',
                   text: 'Google',
                 ),
@@ -174,7 +174,10 @@ class SignUpScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                       const Text('Have an account?',style:  TextStyle(color: Colors.black),),
+                      const Text(
+                        'Have an account?',
+                        style: TextStyle(color: Colors.black),
+                      ),
                       const SizedBox(
                         width: 4,
                       ),

@@ -3,7 +3,6 @@ import 'package:e_commerce_app/view/screens/category_screen.dart';
 import 'package:e_commerce_app/view/screens/favorites_screen.dart';
 import 'package:e_commerce_app/view/screens/home_screen.dart';
 import 'package:e_commerce_app/view/screens/search_screen.dart';
-import 'package:e_commerce_app/view/screens/settings_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 

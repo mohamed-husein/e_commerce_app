@@ -1,17 +1,19 @@
 import 'package:e_commerce_app/logic/bindings/auth_binding.dart';
 import 'package:e_commerce_app/logic/bindings/main_bindings.dart';
 import 'package:e_commerce_app/logic/bindings/products_binging.dart';
+import 'package:e_commerce_app/services/auth_middle.dart';
+import 'package:e_commerce_app/services/welcome_middle.dart';
 import 'package:e_commerce_app/view/screens/all_product_screen.dart';
+import 'package:e_commerce_app/view/screens/auth/forget_pass_screen.dart';
 import 'package:e_commerce_app/view/screens/auth/login_screen.dart';
 import 'package:e_commerce_app/view/screens/auth/sign_up_screen.dart';
 import 'package:e_commerce_app/view/screens/cart_screen.dart';
 import 'package:e_commerce_app/view/screens/home_screen.dart';
 import 'package:e_commerce_app/view/screens/main_screen.dart';
 import 'package:e_commerce_app/view/screens/on_board.dart';
+import 'package:e_commerce_app/view/screens/welcome_screen.dart';
 import 'package:get/get.dart';
 
-import '../view/screens/auth/forget_pass_screen.dart';
-import '../view/screens/welcome_screen.dart';
 
 class AppRoutes {
   //initialPage
@@ -30,6 +32,7 @@ class AppRoutes {
     ),
     GetPage(
       name: Routes.welcomeScreen,
+      middlewares: [WelcomeMiddleWare()],
       page: () {
         return const WelcomeScreen();
       },
@@ -37,12 +40,14 @@ class AppRoutes {
     GetPage(
       name: Routes.loginScreen,
       binding: AuthBindings(),
+      middlewares: [AuthMiddleWare()],
       page: () {
         return LoginScreen();
       },
     ),
     GetPage(
       name: Routes.signUpScreen,
+      middlewares: [AuthMiddleWare()],
       binding: AuthBindings(),
       page: () {
         return SignUpScreen();

@@ -10,9 +10,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 class AuthController extends GetxController {
   bool isVisibility = false;
 
-
-   bool isSave=false;
-  final GetStorage saveLogin=GetStorage();
+  bool isSave = false;
+  final GetStorage saveLogin = GetStorage();
 
   var displayMyName = '';
   var displayImage = '';
@@ -40,11 +39,10 @@ class AuthController extends GetxController {
     auth
         .createUserWithEmailAndPassword(email: email, password: pass)
         .then((value) {
-      isSave=true;
+      isSave = true;
       saveLogin.write('isLogin', isSave);
       createUser(
           name: name, email: email, phone: phone, uId: auth.currentUser!.uid);
-
 
       Get.offNamed(Routes.mainScreen);
     }).catchError((error) {
@@ -70,7 +68,7 @@ class AuthController extends GetxController {
         .doc(uId)
         .set(userModel.toMap())
         .then((value) {
-      isSave=true;
+      isSave = true;
       saveLogin.write('isLogin', isSave);
       update();
     }).catchError((error) {
@@ -82,16 +80,13 @@ class AuthController extends GetxController {
     required String email,
     required String pass,
   }) async {
-    try{
-      await auth
-          .signInWithEmailAndPassword(email: email, password: pass);
-      isSave=true;
+    try {
+      await auth.signInWithEmailAndPassword(email: email, password: pass);
+      isSave = true;
       saveLogin.write('isLogin', isSave);
       update();
       Get.offNamed(Routes.mainScreen);
-    }
-        catch(error){}
-
+    } catch (error) {}
   }
 
   void resetPassword(String email) async {
@@ -103,13 +98,7 @@ class AuthController extends GetxController {
   void googleSignUp() async {
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-      displayMyName= googleUser!.displayName!;
-
-
-
-
-
-
+      displayMyName = googleUser!.displayName!;
       isSave = true;
       saveLogin.write('isLogin', isSave);
       update();
@@ -126,21 +115,17 @@ class AuthController extends GetxController {
     }
   }
 
-  void signOut()async
-  {
-    try
-    {
+  void signOut() async {
+    try {
       await auth.signOut();
       await GoogleSignIn().signOut();
-      isSave=false;
+      isSave = false;
       saveLogin.remove('isLogin');
       displayImage = '';
       displayMyName = '';
       update();
       Get.offNamed(Routes.welcomeScreen);
-    }
-    catch(error)
-    {
+    } catch (error) {
       Get.snackbar('Error!', error.toString(),
           backgroundColor: Colors.grey,
           colorText: Colors.black,
@@ -149,5 +134,4 @@ class AuthController extends GetxController {
           snackPosition: SnackPosition.BOTTOM);
     }
   }
-
 }
