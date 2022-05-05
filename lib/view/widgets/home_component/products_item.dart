@@ -16,6 +16,7 @@ class BuildProductsItem extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: defaultPadding),
           child: SectionTitle(
+            text: 'See All',
             title: "Product",
             pressSeeAll: () {
               Get.toNamed(Routes.allProductScreen);

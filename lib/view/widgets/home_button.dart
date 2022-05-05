@@ -4,7 +4,8 @@ import '../../utils/colors.dart';
 
 class HomeButton extends StatelessWidget {
   final String text;
-  const HomeButton({Key? key,required this.text}) : super(key: key);
+  final VoidCallback onPressed;
+  const HomeButton({Key? key,required this.text,required this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class HomeButton extends StatelessWidget {
         width: 200,
         height: 48,
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed:onPressed,
           style: ElevatedButton.styleFrom(
               primary: mainColor,
               shape: const StadiumBorder()),

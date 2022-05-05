@@ -1,5 +1,4 @@
 import 'package:e_commerce_app/logic/controller/products_controller.dart';
-import 'package:e_commerce_app/utils/icon_broken.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -35,7 +34,7 @@ class AllProductsScreen extends StatelessWidget {
               ),
             ],
           ),
-          body: Column(
+           body: Column(
             children: [
               Padding(
                 padding: const EdgeInsets.all(16),
@@ -147,9 +146,9 @@ class AllProductsScreen extends StatelessWidget {
                 icon: CircleAvatar(
                   backgroundColor: Colors.grey.shade300,
                   child:controller.isFavorite(productId)? SvgPicture.asset(
-                    "assets/icons/Heart.svg",
+                    "assets/icons/heart-solid.svg",color: Colors.red,
                     height: 20,
-                  ):const Icon(IconBroken.Heart,color: Colors.white,),
+                  ): SvgPicture.asset('assets/icons/unselected_heart.svg',color: Colors.white,),
                 ),
               ),
               const Spacer(),

@@ -4,6 +4,7 @@ import 'package:e_commerce_app/logic/bindings/products_binging.dart';
 import 'package:e_commerce_app/view/screens/all_product_screen.dart';
 import 'package:e_commerce_app/view/screens/auth/login_screen.dart';
 import 'package:e_commerce_app/view/screens/auth/sign_up_screen.dart';
+import 'package:e_commerce_app/view/screens/cart_screen.dart';
 import 'package:e_commerce_app/view/screens/home_screen.dart';
 import 'package:e_commerce_app/view/screens/main_screen.dart';
 import 'package:e_commerce_app/view/screens/on_board.dart';
@@ -45,6 +46,13 @@ class AppRoutes {
       binding: AuthBindings(),
       page: () {
         return SignUpScreen();
+      },
+    ),
+    GetPage(
+      name: Routes.cartScreen,
+      binding: AuthBindings(),
+      page: () {
+        return const CartScreen();
       },
     ),
     GetPage(
@@ -95,4 +103,5 @@ class Routes {
   static const allProductScreen='/allProductScreen';
   static const signUpScreen = '/signUpScreen';
   static const homeScreen = '/homeScreen';
+  static const cartScreen = '/cartScreen';
 }

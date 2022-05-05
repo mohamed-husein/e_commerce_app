@@ -4,9 +4,10 @@ class SectionTitle extends StatelessWidget {
   const SectionTitle({
     Key? key,
     required this.title,
-    required this.pressSeeAll,
+    required this.pressSeeAll,required this.text,
   }) : super(key: key);
   final String title;
+  final String text;
   final VoidCallback pressSeeAll;
 
   @override
@@ -23,9 +24,9 @@ class SectionTitle extends StatelessWidget {
         ),
         TextButton(
           onPressed: pressSeeAll,
-          child: const Text(
-            "See All",
-            style: TextStyle(color: Colors.black54),
+          child:  Text(
+            text,
+            style: const TextStyle(color: Colors.black54),
           ),
         )
       ],

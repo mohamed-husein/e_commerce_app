@@ -78,6 +78,7 @@ class HomeScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: defaultPadding),
                 child: SectionTitle(
+                  text: 'See All',
                   title: "Product",
                   pressSeeAll: () {
                     Get.toNamed(Routes.allProductScreen);
@@ -125,7 +126,7 @@ class HomeScreen extends StatelessWidget {
                                       child: Text(
                                         controller.productsList[index].title ,
                                         overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(color: Colors.black),
+                                        style: const TextStyle(color: Colors.black),
                                       ),
                                     ),
                                     const SizedBox(width: defaultPadding / 4),
@@ -145,16 +146,18 @@ class HomeScreen extends StatelessWidget {
 
                               children: [
                                 IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    controller.manageFavorite(controller.productsList[index].id);
+                                  },
                                   icon: CircleAvatar(
                                     backgroundColor: Colors.grey.shade300,
-                                    child: SvgPicture.asset(
-                                      "assets/icons/Heart.svg",
+                                    child:controller.isFavorite(controller.productsList[index].id)? SvgPicture.asset(
+                                      "assets/icons/heart-solid.svg",color: Colors.red,
                                       height: 20,
-                                    ),
+                                    ): SvgPicture.asset('assets/icons/unselected_heart.svg',color: Colors.white,),
                                   ),
                                 ),
-                                Spacer(),
+                                const Spacer(),
                                 IconButton(
                                   onPressed: () {},
                                   icon: CircleAvatar(

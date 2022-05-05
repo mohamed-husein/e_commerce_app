@@ -6,9 +6,9 @@ import 'package:get/get.dart';
 
 class BottomNavItem {
   final String icon;
-  final String text;
 
-  BottomNavItem({required this.icon, required this.text});
+
+  BottomNavItem({required this.icon,});
 }
 
 const TextStyle textStyle = TextStyle(
@@ -19,17 +19,17 @@ const TextStyle textStyle = TextStyle(
 );
 
 class MainScreen extends StatelessWidget {
-  List<BottomNavItem> selectedItems = [
-    BottomNavItem(icon: 'assets/icons/home-solid.svg', text: 'Home'),
-    BottomNavItem(icon: 'assets/icons/apps-solid.svg', text: 'Categories'),
-    BottomNavItem(icon: 'assets/icons/heart-solid.svg', text: 'Favorites'),
-    BottomNavItem(icon: 'assets/icons/user-solid.svg', text: 'Profile'),
+  final List<BottomNavItem> selectedItems = [
+    BottomNavItem(icon: 'assets/icons/home-solid.svg',),
+    BottomNavItem(icon: 'assets/icons/apps-solid.svg',),
+    BottomNavItem(icon: 'assets/icons/search-solid.svg',),
+    BottomNavItem(icon: 'assets/icons/heart-solid.svg',),
   ];
-  List<BottomNavItem> unselectedItems = [
-    BottomNavItem(icon: 'assets/icons/unselected_home.svg', text: 'Home'),
-    BottomNavItem(icon: 'assets/icons/unselected_apps.svg', text: 'Categories'),
-    BottomNavItem(icon: 'assets/icons/unselected_heart.svg', text: 'Favorites'),
-    BottomNavItem(icon: 'assets/icons/unselected_user.svg', text: 'Profile'),
+  final List<BottomNavItem> unselectedItems = [
+    BottomNavItem(icon: 'assets/icons/unselected_home.svg', ),
+    BottomNavItem(icon: 'assets/icons/unselected_apps.svg', ),
+    BottomNavItem(icon: 'assets/icons/search.svg', ),
+    BottomNavItem(icon: 'assets/icons/unselected_heart.svg',),
   ];
   final controller = Get.find<MainController>();
 
@@ -62,11 +62,12 @@ class MainScreen extends StatelessWidget {
                       controller.selectItem(index);
                     },
                     child: SizedBox(
-                      width: MediaQuery.of(context).size.width/5,
+                      width: MediaQuery.of(context).size.width / 5,
                       height: 22,
                       child: SvgPicture.asset(
-
-                        controller.currentIndex.value == index ?selectedItems[index].icon:unselectedItems[index].icon,
+                        controller.currentIndex.value == index
+                            ? selectedItems[index].icon
+                            : unselectedItems[index].icon,
                         height: 20,
                         width: 20,
                         color: controller.currentIndex.value == index

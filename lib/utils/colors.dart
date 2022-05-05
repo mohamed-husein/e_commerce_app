@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 HexColor mainColor = HexColor('6C63FF');
+HexColor grayDark = HexColor('BCBCBC');
 HexColor darkColor = HexColor('05050C');
 const Color primaryColor = Color(0xFFF67952);
 const Color bgColor = Color(0xFFFBFBFD);

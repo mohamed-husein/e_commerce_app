@@ -1,16 +1,24 @@
 import 'package:e_commerce_app/model/products_model.dart';
 import 'package:e_commerce_app/services/products_services.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class ProductsController extends GetxController {
   List productsList = <ProductsModel>[].obs;
   List favoriteList = [].obs;
   var isLoading = true.obs;
+  var getStorage=GetStorage();
 
   @override
   void onInit() {
     // TODO: implement onInit
     super.onInit();
+    List? storedShoppings = getStorage.read<List>('isFavouritesList');
+
+    if (storedShoppings != null) {
+      favoriteList =
+          storedShoppings.map((e) => ProductsModel.fromJson(e)).toList().obs;
+    }
     getProducts();
   }
 
@@ -26,15 +34,18 @@ class ProductsController extends GetxController {
     }
   }
 
-  void manageFavorite(int productId) {
+  void manageFavorite(int productId)async {
     var index=favoriteList.indexWhere((element) => element.id==productId);
     if(index >=0){
 
       favoriteList.removeAt(index);
+      await getStorage.remove('isFavouritesList');
+
     }
     else{
       favoriteList
           .add(productsList.firstWhere((element) => element.id == productId));
+     await getStorage.write('isFavouritesList', favoriteList);
     }
 
   }

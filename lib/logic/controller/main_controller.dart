@@ -2,6 +2,7 @@ import 'package:e_commerce_app/utils/icon_broken.dart';
 import 'package:e_commerce_app/view/screens/category_screen.dart';
 import 'package:e_commerce_app/view/screens/favorites_screen.dart';
 import 'package:e_commerce_app/view/screens/home_screen.dart';
+import 'package:e_commerce_app/view/screens/search_screen.dart';
 import 'package:e_commerce_app/view/screens/settings_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -19,8 +20,9 @@ class MainController extends GetxController {
   final screens = [
      HomeScreen(),
     const CategoriesScreen(),
-    const FavoritesScreen(),
-    const SettingsScreen()
+    const SearchScreen(),
+     FavoritesScreen(),
+
   ].obs;
 
   List<BottomNavigationBarItem> bottomNavItem=[

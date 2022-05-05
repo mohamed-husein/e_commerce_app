@@ -96,7 +96,7 @@ class DetailsScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: defaultPadding * 2),
-                  const HomeButton(text: 'Add to card'),
+                   HomeButton(text: 'Add to card',onPressed: (){}),
                 ],
               ),
             ),

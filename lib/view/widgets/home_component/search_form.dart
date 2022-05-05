@@ -32,7 +32,7 @@ class SearchForm extends StatelessWidget {
           errorBorder: outlineInputBorder,
           prefixIcon: Padding(
             padding: const EdgeInsets.all(14),
-            child: SvgPicture.asset("assets/icons/Search.svg"),
+            child: SvgPicture.asset("assets/icons/Search Icon.svg"),
           ),
           suffixIcon: Padding(
             padding: const EdgeInsets.symmetric(
