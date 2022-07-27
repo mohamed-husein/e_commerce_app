@@ -3,7 +3,7 @@ import 'package:e_commerce_app/utils/my_string.dart';
 import 'package:http/http.dart';
 
 class ProductsServices {
-   Future<List<ProductsModel>> getProducts() async {
+   Future<List<ProductModels>> getProducts() async {
     Response response = await get(Uri.parse('$baseUrl/products'));
     if (response.statusCode == 200) {
       var jsonData = response.body;

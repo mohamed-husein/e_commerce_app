@@ -1,4 +1,6 @@
+import 'package:e_commerce_app/logic/controller/cart_controller.dart';
 import 'package:e_commerce_app/logic/controller/products_controller.dart';
+import 'package:e_commerce_app/model/products_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -9,6 +11,7 @@ import '../widgets/home_component/search_form.dart';
 
 class AllProductsScreen extends StatelessWidget {
   final controller = Get.find<ProductsController>();
+  final cartController = Get.find<CartController>();
 
   AllProductsScreen({Key? key}) : super(key: key);
 
@@ -74,6 +77,7 @@ class AllProductsScreen extends StatelessWidget {
                         title: controller.productsList[index].title,
                         price: controller.productsList[index].price,
                         productId: controller.productsList[index].id,
+                      productsModel: controller.productsList[index],
                     );
                   },
                 ),
@@ -86,7 +90,7 @@ class AllProductsScreen extends StatelessWidget {
   }
 
   Widget buildProductsItem(context,
-      {required String image, required String title, required double price,required int productId}) {
+      {required String image, required String title, required double price,required int productId,required ProductModels productsModel}) {
     return Stack(
       alignment: Alignment.topCenter,
       children: [
@@ -153,7 +157,9 @@ class AllProductsScreen extends StatelessWidget {
               ),
               const Spacer(),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                    cartController.addProductToCart(productsModel);
+                },
                 icon: CircleAvatar(
                   backgroundColor: Colors.grey.shade300,
                   child: SvgPicture.asset(

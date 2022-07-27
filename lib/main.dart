@@ -22,12 +22,19 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'E_Commerce',
       themeMode: ThemeController().themeMode,
-      theme: ThemeData.light().copyWith(
-        appBarTheme:
-            const AppBarTheme(backgroundColor: Colors.white, elevation: 0),
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+            backgroundColor: Colors.white,
+            elevation: 0,
+            iconTheme: IconThemeData(color: Colors.black)),
         scaffoldBackgroundColor: Colors.white,
+        fontFamily: 'Gordita'
       ),
-      darkTheme: ThemeData.dark(),
+      darkTheme: ThemeData(
+        fontFamily: 'Gordita',
+
+        scaffoldBackgroundColor: Colors.black26,
+      ),
       initialRoute: AppRoutes.initial,
       getPages: AppRoutes.route,
     );

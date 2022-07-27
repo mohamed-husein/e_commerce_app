@@ -57,9 +57,9 @@ class AppRoutes {
     ),
     GetPage(
       name: Routes.cartScreen,
-      binding: AuthBindings(),
+      bindings:[ AuthBindings(),ProductsBinding()],
       page: () {
-        return const CartScreen();
+        return  CartScreen();
       },
     ),
     GetPage(
@@ -92,7 +92,7 @@ class AppRoutes {
     ),
     GetPage(
       name: Routes.homeScreen,
-      binding: ProductsBinding(),
+      bindings:[ProductsBinding()] ,
       page: () {
         return HomeScreen();
       },

@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 class ProductsController extends GetxController {
-  List productsList = <ProductsModel>[].obs;
+  List productsList = <ProductModels>[].obs;
   List favoriteList = [].obs;
   var isLoading = true.obs;
   var getStorage = GetStorage();
@@ -16,7 +16,7 @@ class ProductsController extends GetxController {
     List? storedShopping = getStorage.read<List>('isFavouritesList');
     if (storedShopping != null) {
       favoriteList =
-          storedShopping.map((e) => ProductsModel.fromJson(e)).toList().obs;
+          storedShopping.map((e) => ProductModels.fromJson(e)).toList().obs;
     }
     getProducts();
   }

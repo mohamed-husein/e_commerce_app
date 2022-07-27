@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/logic/controller/cart_controller.dart';
 import 'package:e_commerce_app/logic/controller/products_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -12,6 +13,7 @@ import '../widgets/home_component/section_title.dart';
 
 class HomeScreen extends StatelessWidget {
   final controller = Get.put(ProductsController());
+  final cartController = Get.lazyPut(() => CartController());
 
   HomeScreen({Key? key}) : super(key: key);
 
@@ -191,7 +193,9 @@ class HomeScreen extends StatelessWidget {
                                           ),
                                           const Spacer(),
                                           IconButton(
-                                            onPressed: () {},
+                                            onPressed: () {
+                                              CartController().addProductToCart(controller.productsList[index]);
+                                            },
                                             icon: CircleAvatar(
                                               backgroundColor:
                                                   Colors.grey.shade300,
