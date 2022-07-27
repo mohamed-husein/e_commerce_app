@@ -12,7 +12,7 @@ class DescriptionUtils extends StatelessWidget {
       child: Text(
         text,
         textAlign: TextAlign.center,
-        style:Theme.of(context).textTheme.headline6!.copyWith(color: Colors.black,fontSize: 18)
+        style:Theme.of(context).textTheme.headline6!.copyWith(color:Get.isDarkMode?Colors.grey.shade400: Colors.black,fontSize: 18)
       ),
     );
   }

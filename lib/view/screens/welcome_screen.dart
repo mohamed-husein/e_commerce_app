@@ -50,7 +50,7 @@ class WelcomeScreen extends StatelessWidget {
     );
   }
 
-  Widget ScreenContant() {
+  Widget screenContent() {
     return Column(
       children: [
         const TitleUtils(text: 'Welcome'),

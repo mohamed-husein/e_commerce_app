@@ -1,6 +1,7 @@
 import 'package:e_commerce_app/routes/routes.dart';
 import 'package:e_commerce_app/view/widgets/home_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class CartScreen extends StatelessWidget {
@@ -22,9 +23,9 @@ class CartScreen extends StatelessWidget {
             height: 150,
           ),
           Center(
-              child: Image.asset(
-            'assets/images/empty_cart.png',
-            width: MediaQuery.of(context).size.width - 100,
+              child: SvgPicture.asset(
+            'assets/images/undraw_empty_cart.svg',
+            width: MediaQuery.of(context).size.width - 170,
           )),
           const SizedBox(
             height: 20,
@@ -49,7 +50,7 @@ class CartScreen extends StatelessWidget {
           ),
           const SizedBox(height: 30,),
           HomeButton(text: 'Go to home',onPressed: (){
-            Get.toNamed(Routes.mainScreen);
+            Get.toNamed(Routes.allProductScreen);
           },)
         ],
       ),

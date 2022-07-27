@@ -7,6 +7,7 @@ import 'package:e_commerce_app/view/screens/all_product_screen.dart';
 import 'package:e_commerce_app/view/screens/auth/forget_pass_screen.dart';
 import 'package:e_commerce_app/view/screens/auth/login_screen.dart';
 import 'package:e_commerce_app/view/screens/auth/sign_up_screen.dart';
+import 'package:e_commerce_app/view/screens/auth/splash_screen.dart';
 import 'package:e_commerce_app/view/screens/cart_screen.dart';
 import 'package:e_commerce_app/view/screens/home_screen.dart';
 import 'package:e_commerce_app/view/screens/main_screen.dart';
@@ -17,6 +18,7 @@ import 'package:get/get.dart';
 
 class AppRoutes {
   //initialPage
+  static const initial = Routes.splashScreen;
   static const welcome = Routes.welcomeScreen;
   static const main = Routes.mainScreen;
   static const login = Routes.loginScreen;
@@ -83,6 +85,12 @@ class AppRoutes {
       },
     ),
     GetPage(
+      name: Routes.splashScreen,
+      page: () {
+        return const SplashScreen();
+      },
+    ),
+    GetPage(
       name: Routes.homeScreen,
       binding: ProductsBinding(),
       page: () {
@@ -100,6 +108,7 @@ class AppRoutes {
 }
 
 class Routes {
+  static const splashScreen = '/splashScreen';
   static const onBoardScreen = '/onBoardScreen';
   static const welcomeScreen = '/welcomeScreen';
   static const forgetPassScreen = '/forgetPassScreen';
