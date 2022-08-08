@@ -16,9 +16,9 @@ class EmptyCart extends StatelessWidget {
         ),
         Center(
             child: SvgPicture.asset(
-              'assets/images/undraw_empty_cart.svg',
-              width: MediaQuery.of(context).size.width - 170,
-            )),
+          'assets/images/undraw_empty_cart.svg',
+          width: MediaQuery.of(context).size.width - 170,
+        )),
         const SizedBox(
           height: 50,
         ),
@@ -31,7 +31,9 @@ class EmptyCart extends StatelessWidget {
                   .headline6!
                   .copyWith(color: Colors.black, fontSize: 24)),
         ),
-        const SizedBox(height: 5,),
+        const SizedBox(
+          height: 5,
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Text('Add item to get start',
@@ -41,10 +43,20 @@ class EmptyCart extends StatelessWidget {
                   .headline6!
                   .copyWith(color: Colors.grey, fontSize: 16)),
         ),
-        const SizedBox(height: 50,),
-        HomeButton(text: 'Add Product',onPressed: (){
-          Get.toNamed(Routes.allProductScreen);
-        },)
+        const SizedBox(
+          height: 50,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30.0),
+          child: HomeButton(
+            text: 'Add Product',
+            width: MediaQuery.of(context).size.width,
+            border: 15,
+            onPressed: () {
+              Get.toNamed(Routes.allProductScreen);
+            },
+          ),
+        )
       ],
     );
   }

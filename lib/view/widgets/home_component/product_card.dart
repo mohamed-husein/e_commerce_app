@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../utils/contant.dart';
+import '../../../utils/content.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({

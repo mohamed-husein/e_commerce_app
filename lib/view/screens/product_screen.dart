@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import '../../model/Product.dart';
-import '../../utils/contant.dart';
+import '../../utils/content.dart';
 import '../widgets/home_button.dart';
 import '../widgets/product_component/color_dot.dart';
 
@@ -96,7 +94,13 @@ class DetailsScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: defaultPadding * 2),
-                   HomeButton(text: 'Add to card',onPressed: (){}),
+                  HomeButton(
+                      text: 'Add to cart',
+                      onPressed: () {
+
+                      },
+                      width: MediaQuery.of(context).size.width,
+                      border: 15),
                 ],
               ),
             ),

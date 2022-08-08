@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class SectionTitle extends StatelessWidget {
-  const SectionTitle({
+   SectionTitle({
     Key? key,
     required this.title,
-    required this.pressSeeAll,required this.text,
+     this.pressSeeAll,required this.text,
   }) : super(key: key);
   final String title;
   final String text;
-  final VoidCallback pressSeeAll;
+   VoidCallback? pressSeeAll;
 
   @override
   Widget build(BuildContext context) {

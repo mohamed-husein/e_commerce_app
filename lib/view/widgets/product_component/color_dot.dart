@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 
 import '../../../utils/colors.dart';
-import '../../../utils/contant.dart';
+import '../../../utils/content.dart';
 
 class ColorDot extends StatelessWidget {
   const ColorDot({

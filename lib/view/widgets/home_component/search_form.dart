@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../utils/colors.dart';
-import '../../../utils/contant.dart';
+import '../../../utils/content.dart';
 
 
 

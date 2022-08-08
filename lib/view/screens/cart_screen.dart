@@ -2,7 +2,6 @@ import 'package:e_commerce_app/view/cart_items.dart';
 import 'package:e_commerce_app/view/widgets/empty_cart.dart';
 import 'package:e_commerce_app/view/widgets/home_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../../logic/controller/cart_controller.dart';
 import '../widgets/divider.dart';
@@ -20,104 +19,104 @@ class CartScreen extends StatelessWidget {
           "Cart Items",
           style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 18),
         ),
-        actions: [
-          MaterialButton(
-            onPressed: () {},
-            child: SvgPicture.asset('assets/icons/trash.svg'),
-            minWidth: 30,
-          )
-        ],
+
       ),
       bottomNavigationBar: controller.productsMap.isEmpty
           ? null
           : Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Container(
-                color: Colors.white,
-                height: 160,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      children: [
-                        const Text(
-                          "Sub Total",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 12),
-                        ),
-                        const Spacer(),
-                        Text(
-                          '${controller.total.toStringAsFixed(2)} \$',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12,
-                              color: Colors.grey.shade500),
-                        ),
-                      ],
-                    ),
-                    const MyDivider(),
-                    Row(
-                      children: [
-                        const Text(
-                          "Delivery",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 12),
-                        ),
-                        const Spacer(),
-                        Text(
-                          '10 \$',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12,
-                              color: Colors.grey.shade500),
-                        ),
-                      ],
-                    ),
-                    const Spacer(),
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: 60,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(
-                                "Total",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 14),
-                              ),
-                              Text(
-                                "${controller.total.toStringAsFixed(2) + 10}  \$",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 11,
-                                    color: Colors.grey.shade500),
-                              ),
-                            ],
+              child:
+              Container(
+                  color: Colors.white,
+                  height: 160,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: [
+                          const Text(
+                            "Sub Total",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 12),
                           ),
-                        ),
-                        const Spacer(),
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 10),
-                          child: HomeButton(
-                            text: 'Checkout',
-                            onPressed: () {},
-                            width: MediaQuery.of(context).size.width - 80,
-                            border: 10,
+                          const Spacer(),
+                          Obx(
+                            () =>  Text(
+                              '${controller.total} \$',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12,
+                                  color: Colors.grey.shade500),
+                            ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                      const MyDivider(),
+                      Row(
+                        children: [
+                          const Text(
+                            "Delivery",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 12),
+                          ),
+                          const Spacer(),
+                          Text(
+                            '0 \$',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12,
+                                color: Colors.grey.shade500),
+                          ),
+                        ],
+                      ),
+                      const Spacer(),
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: 60,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  "Total",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold, fontSize: 14),
+                                ),
+                                Obx(
+                                      ()=> Text(
+                                    "${controller.allTotal }\$",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 11,
+                                        color: Colors.grey.shade500),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const Spacer(),
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 10),
+                            child: HomeButton(
+                              text: 'Checkout',
+                              onPressed: () {},
+                              width: MediaQuery.of(context).size.width - 80,
+                              border: 10,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
+
       body: Obx(
         () {
           if (controller.productsMap.isEmpty) {

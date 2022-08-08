@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../model/Product.dart';
-import '../../../utils/contant.dart';
+import '../../../utils/content.dart';
 import '../../screens/product_screen.dart';
 import 'product_card.dart';
 import 'section_title.dart';
@@ -16,11 +16,10 @@ class NewArrivalProducts extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: defaultPadding),
+          padding: const EdgeInsets.symmetric(vertical: 0),
           child: SectionTitle(
             text: '',
             title: "New Arrival",
-            pressSeeAll: () {},
           ),
         ),
         SingleChildScrollView(

@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 import '../../../routes/routes.dart';
 import '../../../utils/colors.dart';
-import '../../../utils/contant.dart';
+import '../../../utils/content.dart';
 class BuildProductsItem extends StatelessWidget {
   const BuildProductsItem({Key? key}) : super(key: key);
 

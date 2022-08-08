@@ -1,15 +1,20 @@
 import 'package:e_commerce_app/utils/icon_broken.dart';
-import 'package:e_commerce_app/view/screens/category_screen.dart';
+import 'package:e_commerce_app/view/screens/all_product_screen.dart';
+import 'package:e_commerce_app/view/screens/category_items.dart';
 import 'package:e_commerce_app/view/screens/favorites_screen.dart';
 import 'package:e_commerce_app/view/screens/home_screen.dart';
 import 'package:e_commerce_app/view/screens/search_screen.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../view/screens/main_screen.dart';
 
 class MainController extends GetxController {
+  final scaffoldKey = GlobalKey<ScaffoldState>();
   RxInt currentIndex = 0.obs;
+  void openDrawer(){
+    scaffoldKey.currentState?.openDrawer();
+  }
 
   void selectItem(index){
     currentIndex.value=index;
@@ -18,8 +23,8 @@ class MainController extends GetxController {
 
   final screens = [
      HomeScreen(),
-    const CategoriesScreen(),
-    const SearchScreen(),
+     AllProductsScreen(),
+     SearchScreen(),
      FavoritesScreen(),
 
   ].obs;

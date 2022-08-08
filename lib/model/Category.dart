@@ -6,19 +6,19 @@ class Category {
 
 List<Category> demo_categories = [
   Category(
-    icon: "assets/icons/dress.svg",
-    title: "Dress",
+    icon: "assets/images/responsive.png",
+    title: "Electronics",
   ),
   Category(
-    icon: "assets/icons/shirt.svg",
-    title: "Shirt",
+    icon: "assets/images/rings.png",
+    title: "Jewelery",
   ),
   Category(
-    icon: "assets/icons/pants.svg",
-    title: "Pants",
+    icon: "assets/images/man.png",
+    title: "Men's Clothing",
   ),
   Category(
-    icon: "assets/icons/Tshirt.svg",
-    title: "Tshirt",
+    icon: "assets/images/woman.png",
+    title: "Women's Clothing",
   ),
 ];

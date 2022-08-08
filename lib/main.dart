@@ -23,10 +23,14 @@ class MyApp extends StatelessWidget {
       title: 'E_Commerce',
       themeMode: ThemeController().themeMode,
       theme: ThemeData(
-        appBarTheme: const AppBarTheme(
+        appBarTheme:  AppBarTheme(
             backgroundColor: Colors.white,
+            titleTextStyle: Theme.of(context)
+            .textTheme
+            .bodyText1!
+            .copyWith(fontSize: 16),
             elevation: 0,
-            iconTheme: IconThemeData(color: Colors.black)),
+            iconTheme: const IconThemeData(color: Colors.black)),
         scaffoldBackgroundColor: Colors.white,
         fontFamily: 'Gordita'
       ),

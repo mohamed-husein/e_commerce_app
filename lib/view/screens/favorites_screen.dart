@@ -12,25 +12,6 @@ class FavoritesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {},
-          icon: SvgPicture.asset("assets/icons/menu.svg"),
-        ),
-        centerTitle: true,
-        title: Text(
-          "Favorites",
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 18),
-        ),
-        actions: [
-          IconButton(
-            icon: SvgPicture.asset("assets/icons/shopping-cart.svg"),
-            onPressed: () {
-              Get.toNamed(Routes.cartScreen);
-            },
-          ),
-        ],
-      ),
       body: Obx(
         () {
           if(controller.favoriteList.isEmpty){
@@ -110,10 +91,9 @@ class FavoritesScreen extends StatelessWidget {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  const SizedBox(
-                    height: 10,
-                  ),
+
                   Text(
                     title,
                     overflow: TextOverflow.ellipsis,

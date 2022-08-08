@@ -10,11 +10,19 @@ import 'package:google_sign_in/google_sign_in.dart';
 class AuthController extends GetxController {
   bool isVisibility = false;
 
+
+
   bool isSave = false;
   final GetStorage saveLogin = GetStorage();
 
   var displayMyName = '';
   var displayImage = '';
+
+ // @override
+ //  void onInit() {
+ //    getUserData();
+ //    super.onInit();
+ //  }
 
   var auth = FirebaseAuth.instance;
 
@@ -75,6 +83,18 @@ class AuthController extends GetxController {
       print(error.toString());
     });
   }
+  //  UserModel? model;
+  //
+  // void getUserData() {
+  //   FirebaseFirestore.instance.collection('users').doc(auth.currentUser!.uid).get().then((value) {
+  //     model = UserModel.fromJson(value.data()!);
+  //     update();
+  //   }).catchError((error) {
+  //     print(error.toString());
+  //
+  //
+  //   });
+  // }
 
   void loginWithFireBase({
     required String email,
@@ -99,6 +119,7 @@ class AuthController extends GetxController {
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
       displayMyName = googleUser!.displayName!;
+      displayImage = googleUser.photoUrl!;
       isSave = true;
       saveLogin.write('isLogin', isSave);
       update();
